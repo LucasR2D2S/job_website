@@ -1,0 +1,10 @@
+<h1>Empregados</h1>
+<dl>
+  <% if @employees.each do |employee|%>
+    <dt>Nome: </dt>
+    <dd> <%= employee.user.name%> </dd>
+    <hr>
+  <% end.empty? %>
+    <div class="warning"> Nenhum funcionário cadastrado </div> 
+  <% end %>
+</dl>
