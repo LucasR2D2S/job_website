@@ -1,1 +1,32 @@
-<h3>Sua empresa não está cadastrada ainda, preencha os campos abaixo por favor</h3>
+<% if current_user.admin? %>
+  <% if @company.company_email?(current_user.company_email) %>
+  <% else %>
+    <h3>Sua empresa não está cadastrada ainda, preencha os campos abaixo por favor</h3>
+    <%= form_with model: @company do |f| %>
+      <div class="form-group">
+        <%= f.label :avatar, 'Logo da Empresa' %><br/>
+        <%= f.file_field :avatar %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, 'Nome da Empresa' %><br/>
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :cnpj, 'CNPJ' %><br/>
+        <%= f.text_field :cnpj, autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :address, 'Endereço' %><br/>
+        <%= f.text_field :address, autofocus: true %>
+      </div>
+
+      <div class="btn btn-primary">
+        <%= f.submit "Concluir cadastro" %>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <h3>Só o admin pode registar ou editar dados da empresa. Procure o primeiro funcionário cadastrado.</h3>
+<% end %>

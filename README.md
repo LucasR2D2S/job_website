@@ -1,24 +1,8 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
 * ...
+# Projeto desenvolvido em Ruby on Rails, utilizando TDD para qualidade do código.
+# Ruby 2.7.0 Rails 6.1.1
+# Gems: Capybara, Rspec, Devise;
+# Colaboradores: Lucas Ricardo @LucasR2D2S
+# Trello: https://trello.com/b/7aowpJyI/projeto-job-website
+# Docs: https://docs.google.com/document/d/1LPxSd7ORNLEx6R3M8cN8lXH-1xCFSTmYq3FoqqANe_E/edit?usp=sharing
