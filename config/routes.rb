@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   resources :employees, only: [:index, :new, :create]
 
-  resources :vacancies, only: [:index, :new, :create]
+  resources :vacancies, only: [:index, :show, :new, :create]
 
   resources :companies, only: [:index, :new, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

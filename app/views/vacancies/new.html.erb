@@ -1,0 +1,35 @@
+<%= form_with model: @vacancy do |f| %>
+    <div class="form-group">
+      <%= f.label :title, 'Título da vaga' %><br/>
+      <%= f.text_field :title, autofocus: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :num_candidates, 'Quantidade de cadidatos' %><br/>
+      <%= f.text_field :num_candidates %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :salary, 'Faixa salarial' %><br/>
+      <%= f.text_field :salary %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :local, 'Local' %><br/>
+      <%= f.text_field :local %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description, 'Descrição' %><br/>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :requirements, 'Requisitos' %><br/>
+      <%= f.text_field :requirements %>
+    </div>
+
+    <div class="btn btn-primary">
+    <%= f.submit "Concluir cadastro" %>
+    </div>
+  <% end %>

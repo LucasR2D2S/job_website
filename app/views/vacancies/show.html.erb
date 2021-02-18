@@ -1,0 +1,11 @@
+<h2><%= link_to @vacancy.title, vacancy_path %></h2>
+  <dt>Numero de vagas</dt>
+  <dd> <%= @vacancy.num_candidates %> </dd>
+  <dt>Local</dt>
+  <dd> <%= @vacancy.local %> </dd>
+  <dt>Faixa salarial</dt>
+  <dd> <%= @vacancy.salary %> </dd>
+  <dt>Descrição</dt>
+  <p> <%= @vacancy.description %> </p>
+  <dt>Requisitos</dt>
+  <p> <%= @vacancy.requirements %> </p>

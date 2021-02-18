@@ -1,2 +1,15 @@
-<%= %>
-<h2>A sua empresa não tem vagas, comece cadastrando alguma agora :)</h2>
+<h1>Vagas</h1>
+<%= link_to "Cadastrar nova vaga", new_vacancy_path %> %>
+<dl>
+  <%= if @vacancies.each do |vacancy| %>
+    <dt><%= link_to vacancy.title, vacancy %></dt>
+    <dt>Local: </dt>
+    <dd> <%= vacancy.local %> </dd>
+    <dt>Faixa salarial: </dt>
+    <dd> <%= vacancy.salary %> </dd>
+  <% end.empty? %>
+    <div>
+      <h2>A sua empresa não tem vagas, comece cadastrando alguma agora :)</h2>
+    </div>
+  <% end %>
+</dl> 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_195023) do
+ActiveRecord::Schema.define(version: 2021_02_18_130827) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +38,21 @@ ActiveRecord::Schema.define(version: 2021_02_16_195023) do
     t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "benefits", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "benefits_vacancies", force: :cascade do |t|
+    t.integer "vacancy_id", null: false
+    t.integer "benefit_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["benefit_id"], name: "index_benefits_vacancies_on_benefit_id"
+    t.index ["vacancy_id"], name: "index_benefits_vacancies_on_vacancy_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -74,7 +89,20 @@ ActiveRecord::Schema.define(version: 2021_02_16_195023) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vacancies", force: :cascade do |t|
+    t.string "title"
+    t.integer "num_candidates"
+    t.integer "salary"
+    t.string "local"
+    t.string "description"
+    t.string "requirements"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "benefits_vacancies", "benefits"
+  add_foreign_key "benefits_vacancies", "vacancies"
   add_foreign_key "employees", "users"
 end
