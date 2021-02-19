@@ -14,13 +14,15 @@ class VacanciesController < ApplicationController
 
   def create
     @vacancy = Vacancy.create!(vacancy_params)
+    @company = Company.find_by(company_email: current_user.company_email)
+    @vacancy.company_name = @company.name
     
     if @vacancy.save
       redirect_to vacancies_path
     else
       @benefits = Benefit.all
       render :new
-    end                          
+    end
   end
 
   private
