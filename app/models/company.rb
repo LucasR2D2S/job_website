@@ -4,4 +4,5 @@ class Company < ApplicationRecord
   def company_email?(email)
     Company.exists?(company_email: email)
   end
+
 end

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -12,5 +13,14 @@ class User < ApplicationRecord
 
   def company_email
     self.email.split('@')[1]
+  end
+
+  def candidate(user)
+    Candidate.find_by! user: user
+  end
+
+  def employee(user)
+    Employee.find_by! user: user
+    
   end
 end

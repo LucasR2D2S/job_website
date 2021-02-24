@@ -4,6 +4,7 @@ feature 'Employee register a vacancy' do
   scenario 'successfully' do
     user = User.create!(email: 'guilherme@rebase.com.br', password: '123456', name: 'Guilherme Feitosa', cpf: '123.456.789-52', number: 1142536985, user_type: 5)
     employee = Employee.create!(user: user, company: '@rebase.com.br', admin: true)
+    company = Company.create!(name: 'Rebase', cnpj: '42.318.949/0001-84', address: 'Rua da Rebase, 1234', company_email: 'rebase.com.br')
     benefit = Benefit.create!(name: 'Seguro de Vida')
     other_benefit = Benefit.create!(name: 'Assistência Médica')
     login_as user, scope: :user

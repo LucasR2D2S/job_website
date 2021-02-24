@@ -14,7 +14,7 @@ class VacanciesController < ApplicationController
 
   def create
     @vacancy = Vacancy.create!(vacancy_params)
-    @company = Company.find_by(company_email: current_user.company_email)
+    @company = Company.find_by! company_email: current_user.company_email
     @vacancy.company_name = @company.name
     
     if @vacancy.save
@@ -23,6 +23,15 @@ class VacanciesController < ApplicationController
       @benefits = Benefit.all
       render :new
     end
+  end
+
+  def apply
+    @vacancy = Vacancy.find(params[:id])
+    @user = current_user
+    @candidate = @user.candidate(@user)
+    @vacancy.applicants << @user.candidate
+    puts @vacancy.applicants[0]
+    redirect_to vacancies_path, notice: t('.success')
   end
 
   private

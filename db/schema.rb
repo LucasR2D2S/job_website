@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_19_001546) do
+ActiveRecord::Schema.define(version: 2021_02_23_141200) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2021_02_19_001546) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["benefit_id"], name: "index_benefits_vacancies_on_benefit_id"
     t.index ["vacancy_id"], name: "index_benefits_vacancies_on_vacancy_id"
+  end
+
+  create_table "candidates", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "college"
+    t.string "wins"
+    t.string "biography"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_candidates_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -106,5 +116,6 @@ ActiveRecord::Schema.define(version: 2021_02_19_001546) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "benefits_vacancies", "benefits"
   add_foreign_key "benefits_vacancies", "vacancies"
+  add_foreign_key "candidates", "users"
   add_foreign_key "employees", "users"
 end
