@@ -28,9 +28,9 @@ class VacanciesController < ApplicationController
   def apply
     @vacancy = Vacancy.find(params[:id])
     @user = current_user
-    @candidate = @user.candidate(@user)
-    @vacancy.applicants << @user.candidate
-    puts @vacancy.applicants[0]
+    #@vacancy.applicants.push(@user.candidate_find(@user))
+    #@vacancy.applicants.include? @user.candidate_find(@user)
+    #puts @vacancy.applicants.first
     redirect_to vacancies_path, notice: t('.success')
   end
 

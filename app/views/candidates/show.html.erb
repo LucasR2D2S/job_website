@@ -1,0 +1,13 @@
+<h2><%= link_to @candidate.name, candidate_path %></h2>
+  <dt>Email registrado</dt>
+  <dd> <%= @candidate.user.email %> </dd>
+  <dt>CPF</dt>
+  <dd> <%= @candidate.user.cpf %> </dd>
+  <dt>Telefone</dt>
+  <dd> <%= @candidate.user.number %> </dd>
+  <dt>Faculdade</dt>
+  <dd> <%= @candidate.college %> </dd>
+  <dt>Conquistas</dt>
+  <dd> <%= @candidate.wins %> </dd>
+  <dt>Biografia</dt>
+  <dd> <%= @candidate.biography %> </dd>

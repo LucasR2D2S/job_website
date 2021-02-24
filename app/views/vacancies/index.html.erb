@@ -7,11 +7,6 @@
     <dd> <%= vacancy.local %> </dd>
     <dt>Faixa salarial: </dt>
     <dd> <%= vacancy.salary %> </dd>
-    <% if vacancy.candidate_applied?(current_user) %>
-      <dd>
-        <small>Vaga aplicada!</small>
-      </dd>
-    <% end %>
   <% end.empty? %>
     <div>
       <h2>A sua empresa não tem vagas, comece cadastrando alguma agora :)</h2>

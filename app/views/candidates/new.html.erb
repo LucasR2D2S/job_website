@@ -1,6 +1,6 @@
-<%= form_with model: @employee do |u| %>
+<%= form_with model: @candidate do |u| %>
 
-  <%= fields_for :user, @employee.user do |f| %>
+  <%= fields_for :user, @candidate.user do |f| %>
 
     <div class="form-group">
       <%= f.label :email, 'E-mail' %><br />
@@ -36,8 +36,22 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <%= u.label :college, 'Faculdade' %><br />
+    <%= u.text_field :college, autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <%= u.label :wins, 'Conquistas' %><br />
+    <%= u.text_field :wins, autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <%= u.label :biography, 'Biografia' %><br />
+    <%= u.text_field :biography, autofocus: true %>
+  </div>
+
   <div class="btn btn-primary">
     <%= u.submit "Concluir cadastro" %>
   </div>
 <% end %>
-

@@ -15,12 +15,11 @@ class User < ApplicationRecord
     self.email.split('@')[1]
   end
 
-  def candidate(user)
-    Candidate.find_by! user: user
+  def candidate_find(user)
+    @candidate = Candidate.find_by!(user_id: user)
   end
 
-  def employee(user)
-    Employee.find_by! user: user
-    
+  def employee_find(user)
+    @employee = Employee.find_by!(user_id: user)
   end
 end
